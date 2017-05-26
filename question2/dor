@@ -1,0 +1,19 @@
+1) If Linked list is empty then make the node as head and return it.
+2) If value of the node to be inserted is smaller than value of head node
+    then insert the node at start and make it head.
+3) In a loop, find the appropriate node after which the input node (let 9) is
+    to be inserted. To find the appropriate node start from head, keep moving 
+    until you reach a node GN (10 in the below diagram) who's value is 
+    greater than the input node. The node just before GN is the appropriate
+    node (7).
+4) Insert the node (9) after the appropriate node (7) found in step 3.
+The Transmission Control Protocol (TCP) is one of 
+the main protocols of the Internet protocol suite. It 
+originated in the initial network implementation in which it 
+complemented the Internet Protocol (IP). Therefore, the entire suite is 
+commonly referred to as TCP/IP. TCP provides reliable, ordered, and error-checked
+ delivery of a stream of octets between applications running on
+ hosts communicating by an IP network. Major Internet 
+applications such as the World Wide Web, email, remote administration, and file transfer rely on
+ TCP. Applications that do not require reliable data stream service may use the User Datagram
+ Protocol (UDP), which provides a connectionless datagram service that emphasizes reduced latency over reliability.
