@@ -19,7 +19,7 @@ typedef struct word
 {
 	int *lines_apper;
 	char *word;
-	int size;
+	unsigned long long size;
 	struct word* next;
 }Word;
 

@@ -52,7 +52,7 @@ void insertInOrder(char *data, int line)
 		struct word * current;
 	struct word * new_node = (struct word *)malloc(sizeof(struct word));
 	new_node->word = malloc(sizeof(char) * strlen(data));
-	   strcpy(new_node->word, data);
+	   strncpy(new_node->word, data, 20);
 	   new_node->size = 1;
 	   new_node->lines_apper = (int*)malloc(sizeof(int));
 	   new_node->lines_apper[new_node->size - 1] = line;
@@ -105,19 +105,25 @@ fprintf(wf, "The End\n");
 void add(char* str)
 {
 	Word * position;
-
+	printf("0\n");
 	if((position = exist(str)) == NULL)
 	{
-
+	printf("1\n");
 		number_words++;
+	printf("2\n");
 		insertInOrder(str, number_line);
+	printf("3\n");
 	}
 	else
     {
+	printf("4\n");
 		if(position->lines_apper[position->size - 1] != number_line)
 		{
+	printf("5\n");
 			position->size++;
+	printf("6\n");
 			position->lines_apper = realloc(position->lines_apper, sizeof(int) * position->size );
+	printf("7\n");
 			position->lines_apper[position->size - 1] = number_line;
 		}
 	}
@@ -128,13 +134,20 @@ void handleLine(char* str)
 {
 	char* word;
 	number_line++;
+
 	str = toLower(str);
+
 	word = strtok (str," ,.-\n\t()");
+
 	add(word);
+
 	while ((word = strtok (NULL," ,.-\n\t()")) != NULL)
     {
+
 		 add(word);
+
 	}
+
 }
 
 Word* exist(char* str)
@@ -143,13 +156,19 @@ Word* exist(char* str)
 	Word* temp = head;
 	while(temp != NULL)
 	{
+	printf("a\n");
 		i++;
+	printf("b\n");
 		if(strcmp(str, temp->word) == 0)
 		{
+	printf("c\n");
 			return temp;
 		}
+	printf("d\n");
 		temp = temp->next;
+	printf("e\n");
 	}
+	printf("f\n");
 	return NULL;
 }
 
