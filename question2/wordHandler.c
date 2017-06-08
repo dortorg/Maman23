@@ -52,7 +52,7 @@ void insertInOrder(char *data, int line)
 		struct word * current;
 	struct word * new_node = (struct word *)malloc(sizeof(struct word));
 	new_node->word = malloc(sizeof(char) * strlen(data));
-	   strcpy(new_node->word, data);
+	   strncpy(new_node->word, data, 20);
 	   new_node->size = 1;
 	   new_node->lines_apper = (int*)malloc(sizeof(int));
 	   new_node->lines_apper[new_node->size - 1] = line;
