@@ -26,10 +26,8 @@ void destroy_tree( node *leaf)
 void insert(char* key, int line,  node **leaf)
 {
     int number, number2;
-    int flag = sscanf(key, "%d", &number);
-    int flag2 = sscanf((*leaf)->word, "%d", &number2);
-    if(flag == 0 && flag2 == 0)
-    {
+
+
 		if( *leaf == 0 )
 		{
 			(*leaf) = (struct node*) malloc( sizeof( struct node ) );
@@ -41,6 +39,17 @@ void insert(char* key, int line,  node **leaf)
 			/* initialize the children to null */
 			(*leaf)->left = 0;
 			(*leaf)->right = 0;
+		}
+		else if(sscanf(key, "%d", &number) != 0 && sscanf((*leaf)->word, "%d", &number2)!= 0 )
+		{
+			if(number < number2 )
+			{
+				insert( key, line,&(*leaf)->left );
+			}
+			else if(number > number2)
+			{
+				insert( key, line,&(*leaf)->right );
+			}
 		}
 		else if(strcmp(key, (*leaf)->word) < 0 )
 		{
@@ -50,30 +59,6 @@ void insert(char* key, int line,  node **leaf)
 		{
 			insert( key, line,&(*leaf)->right );
 		}
-    }
-    else
-    {
-		if( *leaf == 0 )
-		{
-			(*leaf) = (struct node*) malloc( sizeof( struct node ) );
-			(*leaf)->word = (char*)malloc(sizeof(char*) * strlen(key));
-			strcpy((*leaf)->word, key);
-			(*leaf)->size = 1;
-			(*leaf)->lines_apper = (int*)malloc(sizeof(int));
-			*(*leaf)->lines_apper = line;
-			/* initialize the children to null */
-			(*leaf)->left = 0;
-			(*leaf)->right = 0;
-		}
-		else if(number < number2 )
-		{
-			insert( key, line,&(*leaf)->left );
-		}
-		else if(number > number2)
-		{
-			insert( key, line,&(*leaf)->right );
-		}
-    }
 }
 
 struct node *search(char* key, struct node *leaf)
