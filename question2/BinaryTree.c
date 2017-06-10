@@ -37,11 +37,11 @@ void insert(char* key, int line,  node **leaf)
         (*leaf)->left = 0;
         (*leaf)->right = 0;
     }
-    else if(strcmp(key, (*leaf)->word) < 0 )
+    else if(strcmp(key, (*leaf)->word) > 0 )
     {
         insert( key, line,&(*leaf)->left );
     }
-    else if(strcmp(key, (*leaf)->word) > 0 )
+    else if(strcmp(key, (*leaf)->word) < 0 )
     {
         insert( key, line,&(*leaf)->right );
     }
