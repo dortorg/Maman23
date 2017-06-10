@@ -64,9 +64,9 @@ void handleLine(char* str)
 	char* word;
 	number_line++;
 	str = toLower(str);
-	word = strtok (str," ,.-\n\t()!@#$%^&*");
+	word = strtok (str," ,.-\n\t()!@#$%^&*/\");
 	add(word);
-	while ((word = strtok (NULL," ,.-\n\t()!@#$%^&*")) != NULL)
+	while ((word = strtok (NULL," ,.-\n\t()!@#$%^&*/\")) != NULL)
     {
 		 add(word);
 	}
