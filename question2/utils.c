@@ -33,7 +33,7 @@ void validateInput(int argc, char* argv[])
 	}
 }
 
-unsigned getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
+/*unsigned getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
 {
 	char *ptr, *eptr;
 
@@ -75,6 +75,6 @@ unsigned getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
 unsigned getLine(char **buf, size_t *bufsiz, FILE *fp)
 {
 	return getdelim(buf, bufsiz, '\n', fp);
-}
+}*/
 
 

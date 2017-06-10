@@ -36,7 +36,7 @@ unsigned getLine(char **buf, size_t *bufsiz, FILE *fp);
 /*
  * getLine use this function
  * */
-unsigned getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp);
+/*unsigned getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp);*/
 
 #endif /* UTILS_H_ */
 

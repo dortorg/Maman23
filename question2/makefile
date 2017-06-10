@@ -1,15 +1,14 @@
+.PHONY: all clean
 all: index
 
-index: index.o utils.o wordHandler.o
-	gcc -ansi -Wall -pedantic -lm -o index index.o utils.o wordHandler.o
+CC = gcc
+CFLAGES = -Wall -ansi -pedantic
+OBJECTS = index.o wordHandler.o utils.o BinaryTree.o
 
-wordHandler.o: wordHandler.c wordHandler.h
-	gcc -ansi -Wall -pedantic -c wordHandler.c
+index: $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o index -lm
 
-utils.o: utils.c utils.h
-	gcc -ansi -Wall -pedantic -c utils.c
-
-index.o: index.c utils.c wordHandler.c wordHandler.h utils.h
-	gcc -ansi -Wall -pedantic -c index.c utils.c wordHandler.c
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
 clean:
 	rm *.o *~index
