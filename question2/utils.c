@@ -74,7 +74,7 @@ unsigned getDelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
 
 unsigned getLine(char **buf, size_t *bufsiz, FILE *fp)
 {
-	return getdelim(buf, bufsiz, '\n', fp);
+	return getDelim(buf, bufsiz, '\n', fp);
 }
 
 

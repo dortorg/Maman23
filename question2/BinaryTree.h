@@ -8,6 +8,7 @@
 #ifndef BINARYTREE_H_
 #define BINARYTREE_H_
 
+#include <stdio.h>
 
 typedef struct node
 {
@@ -25,7 +26,7 @@ void insert(char* key, int line,  node **leaf);
 
 struct node *search(char* key, struct node *leaf);
 
-void inorder(node *temp);
+void inorder(node *temp, FILE *rf);
 
 
 #endif /* BINARYTREE_H_ */

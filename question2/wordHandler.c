@@ -84,5 +84,5 @@ char* toLower(char *str)
 
 void printWords()
 {
-	inorder(head);
+	inorder(head, wf);
 }

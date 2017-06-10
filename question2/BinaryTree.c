@@ -10,10 +10,6 @@
 #include <string.h>
 #include <malloc.h>
 
-FILE *rf;
-/*int number_line = 0;
-int number_words = 0;*/
-
 
 void destroy_tree( node *leaf)
 {
@@ -74,10 +70,10 @@ struct node *search(char* key, struct node *leaf)
 /*
  This function displays the tree in inorder fashion
  */
-void inorder(node *temp) {
+void inorder(node *temp, FILE *rf) {
 	int i;
    if (temp != NULL) {
-      inorder(temp->left);
+      inorder(temp->left, rf);
 	  fprintf(rf, "%s ", temp->word);
 		if(temp->size == 1)
 		{
@@ -92,7 +88,7 @@ void inorder(node *temp) {
 			}
 		}
 	  fprintf(rf, "\n");
-      inorder(temp->right);
+      inorder(temp->right, rf);
    }
 }
 
