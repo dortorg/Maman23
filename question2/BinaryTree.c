@@ -25,25 +25,54 @@ void destroy_tree( node *leaf)
 
 void insert(char* key, int line,  node **leaf)
 {
-    if( *leaf == 0 )
+    int number, number2;
+    int flag = sscanf(key, "%d", &number);
+    int flag2 = sscanf((*leaf)->word, "%d", &number2);
+    if(flag == 0 && flag2 == 0)
     {
-        (*leaf) = (struct node*) malloc( sizeof( struct node ) );
-        (*leaf)->word = (char*)malloc(sizeof(char*) * strlen(key));
-        strcpy((*leaf)->word, key);
-        (*leaf)->size = 1;
-        (*leaf)->lines_apper = (int*)malloc(sizeof(int));
-        *(*leaf)->lines_apper = line;
-        /* initialize the children to null */
-        (*leaf)->left = 0;
-        (*leaf)->right = 0;
+		if( *leaf == 0 )
+		{
+			(*leaf) = (struct node*) malloc( sizeof( struct node ) );
+			(*leaf)->word = (char*)malloc(sizeof(char*) * strlen(key));
+			strcpy((*leaf)->word, key);
+			(*leaf)->size = 1;
+			(*leaf)->lines_apper = (int*)malloc(sizeof(int));
+			*(*leaf)->lines_apper = line;
+			/* initialize the children to null */
+			(*leaf)->left = 0;
+			(*leaf)->right = 0;
+		}
+		else if(strcmp(key, (*leaf)->word) < 0 )
+		{
+			insert( key, line,&(*leaf)->left );
+		}
+		else if(strcmp(key, (*leaf)->word) > 0 )
+		{
+			insert( key, line,&(*leaf)->right );
+		}
     }
-    else if(strcmp(key, (*leaf)->word) < 0 )
+    else
     {
-        insert( key, line,&(*leaf)->left );
-    }
-    else if(strcmp(key, (*leaf)->word) > 0 )
-    {
-        insert( key, line,&(*leaf)->right );
+		if( *leaf == 0 )
+		{
+			(*leaf) = (struct node*) malloc( sizeof( struct node ) );
+			(*leaf)->word = (char*)malloc(sizeof(char*) * strlen(key));
+			strcpy((*leaf)->word, key);
+			(*leaf)->size = 1;
+			(*leaf)->lines_apper = (int*)malloc(sizeof(int));
+			*(*leaf)->lines_apper = line;
+			/* initialize the children to null */
+			(*leaf)->left = 0;
+			(*leaf)->right = 0;
+		}
+		else if(number < number2 )
+		{
+			insert( key, line,&(*leaf)->left );
+		}
+		else if(number > number2)
+		{
+			insert( key, line,&(*leaf)->right );
+		}
     }
 }
 

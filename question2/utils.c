@@ -15,7 +15,7 @@
 
 void validateInput(int argc, char* argv[])
 {
-/*	if(argc > 2)
+	if(argc > 2)
 	{
 		fprintf(stderr, "Too much arguments\n");
 		exit(0);
@@ -24,8 +24,8 @@ void validateInput(int argc, char* argv[])
 	{
 		fprintf(stderr, "No arguments\n");
 		exit(0);
-	}*/
-	rf = fopen("dor","r");
+	}
+	rf = fopen(argv[1],"r");
 	if(rf == NULL)
 	{
 		fprintf(stderr, "Error opening file: %s\n", strerror(errno));
