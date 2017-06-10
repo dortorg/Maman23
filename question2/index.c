@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 	char* line = NULL;
 	size_t len = 0;
 	validateInput(argc, argv);
-	init(argv[1]);
+	//init(argv[1]);
 	while((read = getLine(&line, &len, rf)) != -1)
 	{
 		printf("dorrrrrr\n");

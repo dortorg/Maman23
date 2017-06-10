@@ -32,6 +32,7 @@ void insert(char* key, int line,  node **leaf)
     if( *leaf == 0 )
     {
         (*leaf) = (struct node*) malloc( sizeof( struct node ) );
+        (*leaf)->word = (char*)malloc(sizeof(char*) * strlen(key));
         strcpy((*leaf)->word, key);
         (*leaf)->size = 1;
         (*leaf)->lines_apper = (int*)malloc(sizeof(int));
