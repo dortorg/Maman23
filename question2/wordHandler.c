@@ -16,10 +16,10 @@
 #include <errno.h>
 #include <ctype.h>
 
-FILE *wf;
-int number_line = 0;
-int number_words = 0;
-node* head;
+static FILE *wf;
+static int number_line = 0;
+static int number_words = 0;
+static Node* head;
 
 void init(char* fileName)
 {
@@ -40,7 +40,7 @@ void deinit()
 
 void add(char* str)
 {
-	node * position;
+	struct Node * position;
 	position = search(str, head);
 	if(position == NULL)
 	{

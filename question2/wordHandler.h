@@ -9,7 +9,8 @@
 #define WORD_H_
 /*
  * This class responsible of handling the content of the file,
- *  and make new file with the number of line every word exist
+ *  and make new file with the number of line every word exist.
+ *  give a simple API
  */
 
 

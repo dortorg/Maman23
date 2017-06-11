@@ -15,22 +15,23 @@
 
 void validateInput(int argc, char* argv[])
 {
-	if(argc > 2)
+	if(argc != 2)
 	{
-		fprintf(stderr, "Too much arguments\n");
-		exit(0);
+		fprintf(stderr, "Uses must only provide 2 arguments\n");
 	}
-	if(argc < 2)
+	else
 	{
-		fprintf(stderr, "No arguments\n");
-		exit(0);
+		if((rf = fopen(argv[1],"r")) == NULL)
+		{
+			fprintf(stderr, "Error opening file: %s\n", strerror(errno));
+			exit(0);
+		}
 	}
-	rf = fopen(argv[1],"r");
-	if(rf == NULL)
-	{
-		fprintf(stderr, "Error opening file: %s\n", strerror(errno));
-		exit(0);
-	}
+}
+
+unsigned getLine(char **buf, size_t *bufsiz, FILE *fp)
+{
+	return getDelim(buf, bufsiz, '\n', fp);
 }
 
 unsigned getDelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
@@ -72,9 +73,5 @@ unsigned getDelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
 	return *bufsiz;
 }
 
-unsigned getLine(char **buf, size_t *bufsiz, FILE *fp)
-{
-	return getDelim(buf, bufsiz, '\n', fp);
-}
 
 

@@ -10,23 +10,34 @@
 
 #include <stdio.h>
 
-typedef struct node
+typedef struct Node
 {
 	int *lines_apper;
 	char *word;
-	int size;
-	struct node *left;
-    struct node *right;
-}node;
+	unsigned size;
+	struct Node *left;
+    struct Node *right;
+}Node;
 
+/*
+ * destroy the tree and deallocate the memory
+ */
+void destroy_tree(struct Node *leaf);
 
-void destroy_tree(struct node *leaf);
+/*
+ * insert the data to the binary search tree recursibly
+ */
+void insert(char* key, int line,  Node **leaf);
 
-void insert(char* key, int line,  node **leaf);
+/*
+ * search Node in the binary search tree
+ */
+struct Node *search(char* key, struct Node *leaf);
 
-struct node *search(char* key, struct node *leaf);
-
-void inorder(node *temp, FILE *rf);
+/*
+ * print to file the content of the tree inorder
+ */
+void inorder(Node *temp, FILE *rf);
 
 
 #endif /* BINARYTREE_H_ */

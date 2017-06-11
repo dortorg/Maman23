@@ -11,7 +11,7 @@
 #include <malloc.h>
 
 
-void destroy_tree( node *leaf)
+void destroy_tree( Node *leaf)
 {
   if( leaf != 0 )
   {
@@ -23,14 +23,14 @@ void destroy_tree( node *leaf)
   }
 }
 
-void insert(char* key, int line,  node **leaf)
+void insert(char* key, int line,  Node **leaf)
 {
     int number, number2;
 
 
 		if( *leaf == 0 )
 		{
-			(*leaf) = (struct node*) malloc( sizeof( struct node ) );
+			(*leaf) = (struct Node*) malloc( sizeof( struct Node ) );
 			(*leaf)->word = (char*)malloc(sizeof(char*) * strlen(key));
 			strcpy((*leaf)->word, key);
 			(*leaf)->size = 1;
@@ -61,7 +61,7 @@ void insert(char* key, int line,  node **leaf)
 		}
 }
 
-struct node *search(char* key, struct node *leaf)
+struct Node *search(char* key, struct Node *leaf)
 {
   if( leaf != 0 )
   {
@@ -84,7 +84,7 @@ struct node *search(char* key, struct node *leaf)
 /*
  This function displays the tree in inorder fashion
  */
-void inorder(node *temp, FILE *rf) {
+void inorder(Node *temp, FILE *rf) {
 	int i;
    if (temp != NULL) {
       inorder(temp->left, rf);

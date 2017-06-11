@@ -19,7 +19,7 @@
  * */
 
 /*
- * user file 
+ * user file, the file i get from the user and read from
  * */
 FILE *rf;
 
@@ -37,7 +37,7 @@ unsigned getLine(char **buf, size_t *bufsiz, FILE *fp);
  * getLine use this function
  * */
 
-unsigned getDelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp);
+static unsigned getDelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp);
 
 #endif /* UTILS_H_ */
 
