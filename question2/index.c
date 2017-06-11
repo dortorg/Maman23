@@ -10,7 +10,10 @@ int main(int argc, char* argv[])
 	init(argv[1]);
 	while((read = getLine(&line, &len, rf)) != -1)
 	{
-		handleLine(line);
+		if(strcmp(line, "\n") != 0)
+		{
+			handleLine(line);
+		}
 	}
 	printWords();
 	fclose(rf);
